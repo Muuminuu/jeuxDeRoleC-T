@@ -15,4 +15,21 @@ class AventureController extends AbstractController
             'controller_name' => 'AventureController',
         ]);
     }
+
+    #[Route('/aventure/prologue', name: 'app_aventure_prologue', methods: ['GET'])]
+    public function prologue(): Response
+    {
+        return $this->render('aventure/prologue.html.twig', [
+            'controller_name' => 'AventureController',
+        ]);
+    }
+
+    #[Route('/aventure/acteun', name: 'app_aventure_acteun', methods: ['GET'])]
+    public function acteUn(): Response
+    {
+        return $this->render('aventure/acteun.html.twig', [
+            'controller_name' => 'AventureController',
+        ]);
+    }
+
 }

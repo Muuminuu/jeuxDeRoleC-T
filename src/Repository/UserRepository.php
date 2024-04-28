@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\User;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -20,6 +21,8 @@ class UserRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, User::class);
     }
+
+    
 
     //    /**
     //     * @return User[] Returns an array of User objects
@@ -45,4 +48,16 @@ class UserRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+}
+
+interface PasswordUpgraderInterface
+{
+    /**
+     * Upgrades the hashed password of a user, typically for using a better hash algorithm.
+     *
+     * This method should persist the new password in the user storage and update the $user object accordingly.
+     * Because you don't want your users not being able to log in, this method should be opportunistic:
+     * it's fine if it does nothing or if it fails without throwing any exception.
+     */
+    public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void;
 }

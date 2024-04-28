@@ -21,11 +21,11 @@ class InscriptionType extends AbstractType
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
             ->add('pseudo', TextType::class)
-            ->add('roles', TextType::class)
-            ->add('level', IntegerType::class)
-            ->add('createdAt', null, [
-                'widget' => 'single_text'
-            ], DateTimeImmutable::class)
+            // ->add('roles', TextType::class)
+            // ->add('level', IntegerType::class)
+            // ->add('createdAt', null, [
+            //     'widget' => 'single_text'
+            // ], DateTimeImmutable::class)
             ->add('submit', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-primary mt-4'
