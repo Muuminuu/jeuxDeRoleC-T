@@ -5,11 +5,11 @@
 {% block body %}
 
 <div class="container d-flex mt-5">
-    <div class="card col-4" style="width: 18rem;">
-        <a href="#">
-        <img src={{ asset('/images/Utilisateurs.jpg') }} class="card-img-top" alt="...">
+    <div class="card col-4 mycardcolor" style="width: 18rem;">
+        <a href="{{ path('app_admin_user_list_index') }}" class="text-decoration-none">
+        <img src={{ asset('/images/Utilisateurs.jpg') }} class="card-img-top p-3" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Liste des utilisateurs</h5>
+            <h5 class="card-title text-center text-dark">Liste des utilisateurs</h5>
         </a>
         </div>
     </div>

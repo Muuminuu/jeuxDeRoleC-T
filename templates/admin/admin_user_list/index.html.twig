@@ -1,0 +1,43 @@
+{% extends '/layout/base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+    <h1>Liste des utilisateurs</h1>
+
+    <table class="table table-white table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Pseudo</th>
+                <th>Roles</th>
+                <th>Level</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.pseudo }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.level }}</td>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_user_list_show', {'id': user.id}) }}" class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_admin_user_list_edit', {'id': user.id}) }}" class="btn btn-warning">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_user_list_new') }}" class="btn btn-success">Create new</a>
+{% endblock %}
