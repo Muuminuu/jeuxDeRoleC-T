@@ -27,6 +27,7 @@ class AdminUserListController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
+        // $user->setRoles(['ROLE_USER']);
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
