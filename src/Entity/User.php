@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
-use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -20,27 +19,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 70)]
-    #[Assert\NotBlank]
-    private ?string $email = null;
+    #[ORM\Column(length: 180, unique: true)]
+    #[Assert\Email()]
+    #[Assert\Length(min: 2, max: 180)]
+    private ?string $email;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    private ?string $password = null;
+    private ?string $plainPassword = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank()]
+    private ?string $password = "password";
 
     #[ORM\Column(length: 50)]
     #[Assert\NotBlank]
     private ?string $pseudo = null;
 
     #[ORM\Column]
+    #[Assert\NotNull()]
     private ?array $roles = [];
 
     #[ORM\Column]
-    // #[Assert\NotBlank]
-    private ?int $level = null;
+    private ?int $level = 1;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -55,6 +62,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): static
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * Set the value of plainPassword
+     *
+     * @return  self
+     */ 
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
 
         return $this;
     }
@@ -99,6 +123,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+        $roles[] = 'ROLE_USER';
 
         return $this;
     }
@@ -111,6 +136,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLevel(int $level): static
     {
         $this->level = $level;
+        $level = 1;
 
         return $this;
     }
@@ -136,4 +162,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    /**
+     * Get the value of plainPassword
+     */ 
 }

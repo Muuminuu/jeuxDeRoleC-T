@@ -47,12 +47,12 @@
                 <li><a class="dropdown-item" href="{{ path('app_admin_dashboard') }}">Admin Dashboard</a></li>
                 {% endif %}
                 <li><a class="dropdown-item" href="#">Mon Compte</a></li>
-                <li><a class="dropdown-item" href="{{ path('app_deconnexion') }}">Se déconnecter</a></li>
+                <li><a class="dropdown-item" href="{{ path('app_security.deconnexion') }}">Se déconnecter</a></li>
               </ul>
             </li>
           </ul>
         {% else %}
-            <a class="btn btn-outline-success" href="{{ path('app_utilisateur_connexion') }}">Se connecter</a>
+            <a class="btn btn-outline-success" href="{{ path('app_security.connexion') }}">Se connecter</a>
         {% endif %}
         </div>
     </div>

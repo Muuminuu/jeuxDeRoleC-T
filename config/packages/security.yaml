@@ -17,11 +17,10 @@ security:
             lazy: true
             provider: app_user_provider
             form_login:
-                login_path: app_utilisateur_connexion
-                check_path: app_utilisateur_connexion
-                enable_csrf: true
+                login_path: app_security.connexion
+                check_path: app_security.connexion
             logout:
-                path: app_deconnexion
+                path: app_security.deconnexion
                 # where to redirect after logout
                 # target: app_any_route
             # provider: users_in_memory
@@ -35,7 +34,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
