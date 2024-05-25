@@ -10,12 +10,5 @@
 
 <div class="example-wrapper">
     <h1 class="mb-5">Bienvenue sur la page d'accueil du jeu Citadelles et Wyverns</h1>
-
-{% if is_granted('ROLE_USER') %}
-<p>Mon contenu privé...</p>
-{% else %}>
-<p>C'est NON</p>
-{% endif %}
-
 </div>
 {% endblock %}

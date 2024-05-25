@@ -3,8 +3,16 @@
 {% block title %} Aventure {% endblock %}
 
 {% block body %}
-
-<p>Embarquez et rejoignez une nouvelle aventure<a href="{{ path('app_aventure_prologue') }}">Prologue</a></p>
-<p>Holala il ce passe plein de choses dans la suite de l'aventure<a href="{{ path('app_aventure_acteun') }}">Acte Un</a></p>
+<main class="bg-index">
+<section class="p-5">
+<a href="{{ path('app_aventure_prologue') }}" class="text-decoration-none">
+<div class="container marge col-lg-6">
+<div class="bg-secondary bg-opacity-25 rounded">
+<p class="highlight-texte text-center p-5 medievalsharp-regular">Embarquez et rejoignez une nouvelle aventure</p>
+</div>
+</div>
+</a>
+</section>
+</main>
 
 {% endblock %}

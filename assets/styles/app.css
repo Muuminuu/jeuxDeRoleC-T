@@ -1,7 +1,73 @@
-body {
-    background-color: #5199b6;
+.bg-index {
+    background-image: url(../images/background_maison_campagne.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50em;
+    position: sticky;
+}
+
+.bg-prologue {
+    background-image: url(../images/prologue.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50em;
+    position: sticky;
+}
+
+.miseenpage {
+    height: 44rem;
 }
 
 .mycardcolor {
     background-color: #b9b72a;
+}
+
+.marge {
+    padding-top: 8%;
+}
+
+.medievalsharp-regular {
+    font-family: "MedievalSharp", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+.medievalsharp-text {
+    font-family: "MedievalSharp", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3em;
+}
+
+.highlight-texte {
+    color: rgb(218, 215, 215);
+    text-shadow: 0 0 20px black, 0 0 20px black, 5px 5px 20px black;
+    -webkit-text-stroke: 0.3px black;
+}
+
+.highlight-texte:hover {
+    color: black;
+    text-shadow: 0 0 20px #4abf81, 0 0 20px #4abf81, 5px 5px 20px #4abf81;
+    transition: 0.5s;
+    transform:scale(1.2);
+}
+
+.heavy {
+    opacity: 0.93;
+}
+
+.test > .heavy {
+    opacity: 0,93;
+}
+
+.parchemin {
+    background-image: url(../images/Default_old_scroll_blank_page_0.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 44em;
+    position: sticky;
 }
