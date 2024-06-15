@@ -1,3 +1,12 @@
+.navbar {
+    height: 7em;
+    background-color: #BAA685;
+    background-image: url('../images/dragongauche.jpg'), url('../images/dragondroit.jpg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left, right;
+    background-size: auto 100%, auto 100%;
+}
+
 .bg-index {
     background-image: url(../images/background_maison_campagne.jpg);
     background-size: cover;
@@ -12,8 +21,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 50em;
+    height: 80em;
     position: sticky;
+}
+
+.scroll {
+    overflow: auto;
 }
 
 .miseenpage {
@@ -30,7 +43,7 @@
 
 .medievalsharp-regular {
     font-family: "MedievalSharp", cursive;
-    font-weight: 400;
+    font-weight: 800;
     font-style: normal;
     font-size: 2em;
 }
@@ -64,10 +77,30 @@
 }
 
 .parchemin {
-    background-image: url(../images/Default_old_scroll_blank_page_0.jpg);
+    background-image: url(../images/parcheprologue.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-    height: 44em;
+    position: fixed;
+    height: 55em;
     position: sticky;
+    margin-top: 13%;
+}
+
+.container1 {
+
+    height: 25em;
+    overflow: auto;
+    padding-left: 6em;
+    padding-right: 6em;
+}
+
+.container1 p {
+    margin-top: 10%;
+}
+
+.prologuetitre {
+    padding: 2.35em;
+    position: relative;
+    bottom: 5px;
+    transform: scale(1.5);
 }
